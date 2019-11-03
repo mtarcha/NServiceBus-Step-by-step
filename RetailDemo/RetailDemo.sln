@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientUI", "ClientUI\ClientUI.csproj", "{EF637181-0DE0-42DB-A2CD-28F244EA9988}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages", "Messages\Messages.csproj", "{6DA195BF-0315-4147-A9FA-382324573147}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EF637181-0DE0-42DB-A2CD-28F244EA9988}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF637181-0DE0-42DB-A2CD-28F244EA9988}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF637181-0DE0-42DB-A2CD-28F244EA9988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DA195BF-0315-4147-A9FA-382324573147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DA195BF-0315-4147-A9FA-382324573147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DA195BF-0315-4147-A9FA-382324573147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DA195BF-0315-4147-A9FA-382324573147}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

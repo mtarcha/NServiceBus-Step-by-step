@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Messages;
 using NServiceBus;
 
 namespace ClientUI
@@ -23,11 +24,45 @@ namespace ClientUI
             var endpointInstance = await Endpoint.Start(endpointConfiguration)
                 .ConfigureAwait(false);
 
-            Console.WriteLine("Press Enter to exit...");
-            Console.ReadLine();
+            await RunLoop(endpointInstance)
+                .ConfigureAwait(false);
 
             await endpointInstance.Stop()
                 .ConfigureAwait(false);
+        }
+
+        static async Task RunLoop(IEndpointInstance endpointInstance)
+        {
+            while (true)
+            {
+                Console.WriteLine("Press 'P' to place an order, or 'Q' to quit.");
+                var key = Console.ReadKey();
+                Console.WriteLine();
+
+                switch (key.Key)
+                {
+                    case ConsoleKey.P:
+                        // Instantiate the command
+                        var command = new PlaceOrder
+                        {
+                            Id = Guid.NewGuid()
+                        };
+
+                        // Send the command to the local endpoint
+                        Console.WriteLine($"Sending PlaceOrder command, OrderId = {command.Id}");
+                        await endpointInstance.SendLocal(command)
+                            .ConfigureAwait(false);
+
+                        break;
+
+                    case ConsoleKey.Q:
+                        return;
+
+                    default:
+                        Console.WriteLine("Unknown input. Please try again.");
+                        break;
+                }
+            }
         }
     }
 }
