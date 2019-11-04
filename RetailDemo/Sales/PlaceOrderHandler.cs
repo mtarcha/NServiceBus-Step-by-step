@@ -7,11 +7,11 @@ namespace Sales
 {
     public class PlaceOrderHandler : IHandleMessages<PlaceOrder>
     {
-        public Task Handle(PlaceOrder message, IMessageHandlerContext context)
+        public async Task Handle(PlaceOrder message, IMessageHandlerContext context)
         {
             Console.WriteLine("Place order with id:" + message.Id);
-            
-            return Task.CompletedTask;
+
+            await context.Publish<OrderPlaced>(x => x.Id = message.Id);
         }
     }
 }
