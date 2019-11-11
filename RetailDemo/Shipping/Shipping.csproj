@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Program.cs~RF45ee7665.TMP" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="NServiceBus" Version="7.2.0" />
   </ItemGroup>
 

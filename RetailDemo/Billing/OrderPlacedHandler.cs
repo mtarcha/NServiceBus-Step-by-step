@@ -7,11 +7,11 @@ namespace Billing
 {
     public class OrderPlacedHandler : IHandleMessages<OrderPlaced>
     {
-        public Task Handle(OrderPlaced message, IMessageHandlerContext context)
+        public async Task Handle(OrderPlaced message, IMessageHandlerContext context)
         {
-            Console.WriteLine($"Order placed {message.Id}");
+            Console.WriteLine($"Order billed {message.Id}");
 
-            return Task.CompletedTask;
+            await context.Publish<OrderBilled>(x => x.Id = message.Id);
         }
     }
 }
